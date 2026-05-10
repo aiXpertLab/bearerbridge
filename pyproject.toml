@@ -1,0 +1,55 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "bearerbridge"
+version = "0.1.0"
+description = "FastAPI helpers for Supabase/JWKS bearer JWT validation and service-to-service auth forwarding."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [
+  { name = "BearerBridge Contributors" }
+]
+keywords = ["fastapi", "supabase", "jwt", "jwks", "bearer", "service-to-service", "auth"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Framework :: FastAPI",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Internet :: WWW/HTTP",
+  "Topic :: Security",
+  "Typing :: Typed",
+]
+dependencies = [
+  "fastapi>=0.110",
+  "httpx>=0.27",
+  "python-jose[cryptography]>=3.3",
+]
+
+[project.optional-dependencies]
+test = [
+  "pytest>=8.0",
+  "pytest-asyncio>=0.23",
+]
+dev = [
+  "build>=1.2",
+  "twine>=5.0",
+  "pytest>=8.0",
+  "pytest-asyncio>=0.23",
+]
+
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/bearerbridge"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+
